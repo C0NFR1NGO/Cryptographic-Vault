@@ -6,7 +6,7 @@ A robust, object-oriented software utility for securely encrypting, obscuring, a
 
 
 
-\## Overview
+## Overview
 
 
 
@@ -14,23 +14,23 @@ This project digitally constructs a secure vault for sensitive local files. Rath
 
 
 
-\## Features
+## Features
 
 
 
-\* \*\*Per-File Isolation:\*\* Built with a decentralized security approach. There is no master password; every file is encrypted independently using unique credentials.
+* **Per-File Isolation:** Built with a decentralized security approach. There is no master password; every file is encrypted independently using unique credentials.
 
-\* \*\*Military-Grade Cryptography:\*\* Utilizes the exact mathematical implementations of AES-128 in CBC mode, authenticated with SHA256 HMAC signatures to prevent tampering.
+* **Military-Grade Cryptography:** Utilizes the exact mathematical implementations of AES-128 in CBC mode, authenticated with SHA256 HMAC signatures to prevent tampering.
 
-\* \*\*Metadata Concealment:\*\* Implements a custom Type-Length-Value (TLV) binary protocol to pack the original filename and extension directly into the encrypted payload, completely obscuring the file type and intent from outside observers.
+* **Metadata Concealment:** Implements a custom Type-Length-Value (TLV) binary protocol to pack the original filename and extension directly into the encrypted payload, completely obscuring the file type and intent from outside observers.
 
-\* \*\*Secure Shredding:\*\* Replicates the physical destruction of documents by overwriting the original file's location with cryptographically secure random noise (`os.urandom`) before unlinking it from the drive.
+* **Secure Shredding:** Replicates the physical destruction of documents by overwriting the original file's location with cryptographically secure random noise (`os.urandom`) before unlinking it from the drive.
 
-\* \*\*Unique Salting:\*\* Generates a unique 16-byte cryptographic salt for every encryption pass, ensuring identical files yield completely different ciphertexts and neutralizing pre-computed rainbow table attacks.
+* **Unique Salting:** Generates a unique 16-byte cryptographic salt for every encryption pass, ensuring identical files yield completely different ciphertexts and neutralizing pre-computed rainbow table attacks.
 
 
 
-\## Project Structure
+## Project Structure
 
 
 
@@ -38,19 +38,19 @@ The codebase is encapsulated within a modular, Object-Oriented script (`vault.py
 
 
 
-\* `Vault::\_\_init\_\_`: Orchestrates the core vault settings, establishing the 600,000 iteration work-factor to mathematically throttle brute-force attempts.
+* `Vault::__init__`: Orchestrates the core vault settings, establishing the 600,000 iteration work-factor to mathematically throttle brute-force attempts.
 
-\* `Vault::\_derive\_key`: Handles the PBKDF2HMAC cryptographic math to convert human-readable passwords and raw salts into secure 32-byte AES keys.
+* `Vault::_derive_key`: Handles the PBKDF2HMAC cryptographic math to convert human-readable passwords and raw salts into secure 32-byte AES keys.
 
-\* `Vault::lock`: Manages the metadata packing, data scrambling (encryption), and the secure destruction (shredding) of the source file.
+* `Vault::lock`: Manages the metadata packing, data scrambling (encryption), and the secure destruction (shredding) of the source file.
 
-\* `Vault::unlock`: Reverses the binary protocol, verifying HMAC signatures before unpacking the original metadata and perfectly restoring the file.
+* `Vault::unlock`: Reverses the binary protocol, verifying HMAC signatures before unpacking the original metadata and perfectly restoring the file.
 
-\* `main()`: The entry point providing an interactive, user-friendly command-line interface with automatic string-stripping for drag-and-drop file support.
+* `main()`: The entry point providing an interactive, user-friendly command-line interface with automatic string-stripping for drag-and-drop file support.
 
 
 
-\## Installation \& Execution
+## Installation & Execution
 
 
 
@@ -60,13 +60,13 @@ To run the project, ensure you have a standard Python 3.7+ environment installed
 
 ```bash
 
-\# Install the required cryptographic dependency
+# Install the required cryptographic dependency
 
 pip install cryptography
 
 
 
-\# Launch the interactive vault interface
+# Launch the interactive vault interface
 
 python vault.py
 
