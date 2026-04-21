@@ -68,5 +68,5 @@ pip install cryptography
 
 # Launch the interactive vault interface
 
-python vault.py
+py script.py
 
