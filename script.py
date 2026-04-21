@@ -144,8 +144,7 @@ def main():
                 file_input = file_input[1:-1]
                 
             target_path = Path(file_input)
-            
-            # Prompt for password specifically for this file
+    
             file_password = getpass.getpass(f"Enter password for {target_path.name}: ")
             
             if choice == '1':
